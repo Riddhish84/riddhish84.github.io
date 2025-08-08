@@ -105,6 +105,8 @@
             transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            margin-bottom: 10px;
         }
 
         .skill-item:hover {
@@ -112,6 +114,95 @@
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
+        /* Progress bar styles */
+        .skill-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.8s ease-in-out;
+            position: relative;
+        }
+
+        .skill-item.active .skill-progress {
+            opacity: 1;
+        }
+
+        /* Tooltip styles */
+        .skill-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            margin-bottom: 5px;
+        }
+
+        .skill-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .skill-item:hover .skill-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Experience badge */
+        .experience-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 7px;
+            border-radius: 12px;
+            min-width: 22px;
+            text-align: center;
+            opacity: 1;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-item:hover .experience-badge {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-item.active .experience-badge {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
         .right-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -294,18 +385,102 @@
             <div class="skills-section">
                 <h3>Technical Skills</h3>
                 <div class="skills-grid">
-                    <div class="skill-item">AI</div>
-                    <div class="skill-item">C#</div>
-                    <div class="skill-item">.NET</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Angular</div>
-                    <div class="skill-item">SQL Server</div>
-                    <div class="skill-item">MySQL</div>
-                    <div class="skill-item">Azure</div>
-                    <div class="skill-item">REST API</div>
-                    <div class="skill-item">MVC</div>
+                    <div class="skill-item" data-skill="ai" data-proficiency="85" data-years="2">
+                        AI
+                        <div class="skill-tooltip">AI & Machine Learning - 85% Proficiency</div>
+                        <div class="experience-badge">2y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="csharp" data-proficiency="95" data-years="8">
+                        C#
+                        <div class="skill-tooltip">C# Programming - 95% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="dotnet" data-proficiency="95" data-years="8">
+                        .NET
+                        <div class="skill-tooltip">.NET Framework - 95% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="python" data-proficiency="90" data-years="4">
+                        Python
+                        <div class="skill-tooltip">Python Development - 90% Proficiency</div>
+                        <div class="experience-badge">4y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="javascript" data-proficiency="92" data-years="7">
+                        JavaScript
+                        <div class="skill-tooltip">JavaScript & ES6+ - 92% Proficiency</div>
+                        <div class="experience-badge">7y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="react" data-proficiency="88" data-years="4">
+                        React
+                        <div class="skill-tooltip">React Development - 88% Proficiency</div>
+                        <div class="experience-badge">4y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="angular" data-proficiency="85" data-years="3">
+                        Angular
+                        <div class="skill-tooltip">Angular Framework - 85% Proficiency</div>
+                        <div class="experience-badge">3y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="sqlserver" data-proficiency="93" data-years="8">
+                        SQL Server
+                        <div class="skill-tooltip">SQL Server Database - 93% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="mysql" data-proficiency="90" data-years="6">
+                        MySQL
+                        <div class="skill-tooltip">MySQL Database - 90% Proficiency</div>
+                        <div class="experience-badge">6y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="azure" data-proficiency="87" data-years="3">
+                        Azure
+                        <div class="skill-tooltip">Microsoft Azure - 87% Proficiency</div>
+                        <div class="experience-badge">3y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="restapi" data-proficiency="94" data-years="7">
+                        REST API
+                        <div class="skill-tooltip">RESTful APIs - 94% Proficiency</div>
+                        <div class="experience-badge">7y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="mvc" data-proficiency="96" data-years="8">
+                        MVC
+                        <div class="skill-tooltip">MVC Architecture - 96% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -418,12 +593,35 @@
     </div>
 
     <script>
-        // Add interactive hover effects
+          // Add click event listeners to skill items
         document.querySelectorAll('.skill-item').forEach(item => {
             item.addEventListener('click', function () {
+                const proficiency = this.dataset.proficiency;
+                const progressFill = this.querySelector('.skill-progress-fill');
+
+                // Toggle active state
+                const isActive = this.classList.contains('active');
+
+                // Remove active state from all items
+                document.querySelectorAll('.skill-item').forEach(skill => {
+                    skill.classList.remove('active');
+                    skill.querySelector('.skill-progress-fill').style.width = '0%';
+                });
+
+                // If item wasn't active, make it active
+                if (!isActive) {
+                    this.classList.add('active');
+
+                    // Animate progress bar
+                    setTimeout(() => {
+                        progressFill.style.width = proficiency + '%';
+                    }, 100);
+                }
+
+                // Scale effect
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    this.style.transform = 'translateY(-5px)';
+                    this.style.transform = this.classList.contains('active') ? 'translateY(-2px)' : 'translateY(0)';
                 }, 150);
             });
         });

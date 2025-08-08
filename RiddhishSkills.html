@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddhish - Professional experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            min-height: calc(100vh - 80px);
+        }
+
+        .left-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .skills-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+
+        .skills-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .right-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .role-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .role-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .description p {
+            margin-bottom: 20px;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .expertise-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .expertise-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 20px 10px;
+            }
+
+            .left-section, .right-section {
+                padding: 30px 20px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .left-section, .right-section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .right-section {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section - Profile and Skills -->
+        <div class="left-section">
+            <div class="profile-header">
+                <div class="profile-image">R</div>
+                <h1 class="name">Riddhish</h1>
+            </div>
+            
+            <div class="skills-section">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">AI</div>
+                    <div class="skill-item">C#</div>
+                    <div class="skill-item">.NET</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Angular</div>
+                    <div class="skill-item">SQL Server</div>
+                    <div class="skill-item">MySQL</div>
+                    <div class="skill-item">Azure</div>
+                    <div class="skill-item">REST API</div>
+                    <div class="skill-item">MVC</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section - Professional Description -->
+        <div class="right-section">
+            <div class="about-section">
+                <h2>Professional Profile</h2>
+                
+                <div class="role-tags">
+                    <span class="role-tag">Computer Engineer</span>
+                    <span class="role-tag">Software Developer</span>
+                    <span class="role-tag">SSAS DEVELOPER</span>
+                </div>
+
+                <div class="description">
+                    <p>
+                        <strong>Expert in .NET MVC and Web API (RESTful)</strong> with extensive experience working with the latest front-end frameworks including React and Angular. I specialize in creating scalable, high-performance web applications that deliver exceptional user experiences.
+                    </p>
+
+                    <p>
+                        <strong>Database Mastery:</strong> Advanced proficiency in SQL Server and MySQL, with expertise in designing and implementing stored procedures and views to enhance application performance and optimize data retrieval.
+                    </p>
+
+                    <p>
+                        <strong>Cloud & Infrastructure:</strong> Comprehensive experience with Azure cloud services and cache management solutions. Specialized knowledge in Azure B2C implementation using custom policies for secure authentication and authorization systems.
+                    </p>
+
+                    <p>
+                        <strong>Domain Expertise:</strong>
+                    </p>
+                    <ul class="expertise-list">
+                        <li>DICOM Processing</li>
+                        <li>Marketing Automation Systems</li>
+                        <li>Cargo Management Solutions</li>
+                        <li>User Management & Authentication</li>
+                        <li>Enterprise Application Development</li>
+                    </ul>
+
+                    <div class="quote">
+                        "Quality will always cost less"
+                        <br><small>- My development philosophy</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive hover effects
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px)';
+                }, 150);
+            });
+        });
+
+        // Add smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>

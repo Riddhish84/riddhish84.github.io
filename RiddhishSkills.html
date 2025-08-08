@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -197,7 +198,8 @@
                 padding: 20px 10px;
             }
 
-            .left-section, .right-section {
+            .left-section,
+            .right-section {
                 padding: 30px 20px;
             }
 
@@ -215,13 +217,15 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .left-section, .right-section {
+        .left-section,
+        .right-section {
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -230,50 +234,50 @@
         }
     </style>
 
-	<style>
-	#experience {
-  padding: 40px;
-  background: #f9f9f9;
-}
+    <style>
+        #experience {
+            padding: 40px;
+            background: #f9f9f9;
+        }
 
-#experience h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
+        #experience h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
-.experience-item {
-  margin-bottom: 40px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+        .experience-item {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.company-logo {
-  height: 50px;
-  margin-bottom: 10px;
-}
+        .company-logo {
+            height: 50px;
+            margin-bottom: 10px;
+        }
 
-.company {
-  font-weight: bold;
-  color: #555;
-}
+        .company {
+            font-weight: bold;
+            color: #555;
+        }
 
-.date-location {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 10px;
-}
+        .date-location {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
 
-.skills {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-	</style>
+        .skills {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
 
 </head>
+
 <body>
     <div class="container">
         <!-- Left Section - Profile and Skills -->
@@ -281,8 +285,12 @@
             <div class="profile-header">
                 <div class="profile-image">R B</div>
                 <h1 class="name">Riddhish Bambhroliya</h1>
+                <div class="quote">
+                    "Quality will always cost less"
+                    <br><small>- My development philosophy</small>
+                </div>
             </div>
-            
+
             <div class="skills-section">
                 <h3>Technical Skills</h3>
                 <div class="skills-grid">
@@ -306,7 +314,7 @@
         <div class="right-section">
             <div class="about-section">
                 <h2>Professional Profile</h2>
-                
+
                 <div class="role-tags">
                     <span class="role-tag">Computer Engineer</span>
                     <span class="role-tag">Software Developer</span>
@@ -315,15 +323,21 @@
 
                 <div class="description">
                     <p>
-                        <strong>Expert in .NET MVC and Web API (RESTful)</strong> with extensive experience working with the latest front-end frameworks including React and Angular. I specialize in creating scalable, high-performance web applications that deliver exceptional user experiences.
+                        <strong>Expert in .NET MVC and Web API (RESTful)</strong> with extensive experience working with
+                        the latest front-end frameworks including React and Angular. I specialize in creating scalable,
+                        high-performance web applications that deliver exceptional user experiences.
                     </p>
 
                     <p>
-                        <strong>Database Mastery:</strong> Advanced proficiency in SQL Server and MySQL, with expertise in designing and implementing stored procedures and views to enhance application performance and optimize data retrieval.
+                        <strong>Database Mastery:</strong> Advanced proficiency in SQL Server and MySQL, with expertise
+                        in designing and implementing stored procedures and views to enhance application performance and
+                        optimize data retrieval.
                     </p>
 
                     <p>
-                        <strong>Cloud & Infrastructure:</strong> Comprehensive experience with Azure cloud services and cache management solutions. Specialized knowledge in Azure B2C implementation using custom policies for secure authentication and authorization systems.
+                        <strong>Cloud & Infrastructure:</strong> Comprehensive experience with Azure cloud services and
+                        cache management solutions. Specialized knowledge in Azure B2C implementation using custom
+                        policies for secure authentication and authorization systems.
                     </p>
 
                     <p>
@@ -337,63 +351,76 @@
                         <li>Enterprise Application Development</li>
                     </ul>
 
-                    <div class="quote">
-                        "Quality will always cost less"
-                        <br><small>- My development philosophy</small>
-                    </div>
+
                 </div>
             </div>
         </div>
-		<div class="left-section">
-		<div class="about-section">
-			<h2>Experience</h2>
-	</div>
-  <!-- RamSoft -->
-  <div class="experience-item">
-    <h3>Software Developer</h3>
-    <p class="company">RamSoft · Permanent Full-time</p>
-    <p class="date-location">Sep 2020 – Present · 5 yrs | Toronto, Ontario, Canada</p>
-    <h4>Key Contributions:</h4>
-    <ul class="expertise-list">
-      <li>Developed a SaaS product that significantly enhances patient care and reimagines healthcare delivery.</li>
-      <li>Implemented efficient DICOM processing for streamlined medical data management.</li>
-      <li>Designed and executed seamless authentication and authorization experiences utilizing B2C custom policies across C#, JavaScript, Python, and PowerShell.</li>
-      <li>Built a custom Authentication Policy builder to facilitate federated logins, enhancing user experience and security.</li>
-      <li>Developed intuitive, responsive UIs using React.</li>
-      <li>Managed CI/CD pipelines to optimize deployment workflows.</li>
-      <li>Created Chrome extensions to enhance application functionality.</li>
-      <li>Conducted load testing with Apache JMeter to ensure performance under varying conditions.</li>
-      <li>Reviewed and improved code quality and application performance.</li>
-      <li>Troubleshot and resolved production bugs by analyzing logs and diagnosing issues effectively.</li>
-    </ul>
-    <p class="skills"><strong>Skills:</strong> Python, C#, JavaScript, React, CI/CD, DICOM, Apache JMeter, Chrome Extensions, B2C Authentication</p>
-  </div>
+    </div>
+    <div class="container">
+        <div class="left-section">
+            <div class="about-section">
+                <h2>Current Experience</h2>
+            </div>
+            <!-- RamSoft -->
+            <div class="experience-item">
+                <h3>Software Developer</h3>
+                <p class="company">RamSoft · Permanent Full-time</p>
+                <p class="date-location">Sep 2020 – Present · 5 yrs | Toronto, Ontario, Canada</p>
+                <h4>Key Contributions:</h4>
+                <ul class="expertise-list">
+                    <li>Developed a SaaS product that significantly enhances patient care and reimagines healthcare
+                        delivery.</li>
+                    <li>Implemented efficient DICOM processing for streamlined medical data management.</li>
+                    <li>Designed and executed seamless authentication and authorization experiences utilizing B2C custom
+                        policies across C#, JavaScript, Python, and PowerShell.</li>
+                    <li>Built a custom Authentication Policy builder to facilitate federated logins, enhancing user
+                        experience and security.</li>
+                    <li>Developed intuitive, responsive UIs using React.</li>
+                    <li>Managed CI/CD pipelines to optimize deployment workflows.</li>
+                    <li>Created Chrome extensions to enhance application functionality.</li>
+                    <li>Conducted load testing with Apache JMeter to ensure performance under varying conditions.</li>
+                    <li>Reviewed and improved code quality and application performance.</li>
+                    <li>Troubleshot and resolved production bugs by analyzing logs and diagnosing issues effectively.
+                    </li>
+                </ul>
+                <p class="skills"><strong>Skills:</strong> Python, C#, JavaScript, React, CI/CD, DICOM, Apache JMeter,
+                    Chrome Extensions, B2C Authentication</p>
+            </div>
 
-  <!-- Sourcenet IT -->
-  <div class="experience-item">
-    <h3>Sr. Web Developer</h3>
-    <p class="company">Sourcenet IT Service Provider Private Limited · Full-time</p>
-    <p class="date-location">Aug 2016 – Mar 2019 · 2 yrs 8 mos | Surat Area, India</p>
-    <ul class="expertise-list">
-      <li>Led development and maintenance of multi-layered projects using Devexpress, Entity Framework, Angular, Web API, and jQuery.</li>
-      <li>Directed a team of four developers, ensuring quality and timely delivery.</li>
-      <li>Improved query runtime by 30% through optimized stored procedures and functions.</li>
-      <li>Documented REST APIs using Swagger for improved team collaboration.</li>
-      <li>Implemented code corrections in C# and JavaScript, reducing schedule slippage using Git and Jira.</li>
-      <li>Managed MySQL and SQL Server databases with optimized connections and procedures.</li>
-      <li>Awarded “Best Employee” in 2019 for outstanding performance.</li>
-    </ul>
-    <p class="skills"><strong>Skills:</strong> HTML, REST APIs, C#, JavaScript, Angular, SQL Server, MySQL, Git, Jira, Swagger</p>
-  </div>
+        </div>
+        <div class="right-section">
+            <div class="about-section">
+                <h2>Previous Experience</h2>
+            </div>
+            <!-- Sourcenet IT -->
+            <div class="experience-item">
+                <h3>Sr. Web Developer</h3>
+                <p class="company">Sourcenet IT Service Provider Private Limited · Full-time</p>
+                <p class="date-location">Aug 2016 – Mar 2019 · 2 yrs 8 mos | Surat Area, India</p>
+                <h4>Key Contributions:</h4>
+                <ul class="expertise-list">
+                    <li>Led development and maintenance of multi-layered projects using Devexpress, Entity Framework,
+                        Angular, Web API, and jQuery.</li>
+                    <li>Directed a team of four developers, ensuring quality and timely delivery.</li>
+                    <li>Improved query runtime by 30% through optimized stored procedures and functions.</li>
+                    <li>Documented REST APIs using Swagger for improved team collaboration.</li>
+                    <li>Implemented code corrections in C# and JavaScript, reducing schedule slippage using Git and
+                        Jira.</li>
+                    <li>Managed MySQL and SQL Server databases with optimized connections and procedures.</li>
+                    <li>Awarded “Best Employee” in 2019 for outstanding performance.</li>
+                </ul>
+                <p class="skills"><strong>Skills:</strong> HTML, REST APIs, C#, JavaScript, Angular, SQL Server, MySQL,
+                    Git, Jira, Swagger</p>
+            </div>
 
-		</div>
-	
-	</div>
+        </div>
+
+    </div>
 
     <script>
         // Add interactive hover effects
         document.querySelectorAll('.skill-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = 'translateY(-5px)';
@@ -407,7 +434,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -421,4 +448,5 @@
         });
     </script>
 </body>
+
 </html>

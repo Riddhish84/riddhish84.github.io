@@ -1,32 +1,650 @@
 <!DOCTYPE html>
-<html>
-  <head>
- 
+<html lang="en">
 
-    <meta charset="utf-8">
-    <title>Riddhish Bambhroliya</title>
-	
-	 <link rel="stylesheet" type="text/css" href="myStyle.css">
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddhish Bambhroliya - Professional experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  </head>
-  <body>
-    <div id="message">
-	<div align="center">
-	 <img src="https://avatars.githubusercontent.com/u/92803100?s=200" alt="Riddhish Bambhroliya" height="200" width="200" style="background: linear-gradient(to bottom, #3F51B5 50%, #FAFAFA 50%);"> 
-	 </div>
-	 <div> </div>
-      <h1>Mr. Riddhish Bambhroliya</h1>
-      <p>Computer Engineer | Programmer | Software Developer</p>
-	  <div align="center">
-	  <a target="_blank" href="https://www.linkedin.ca/in/riddhish84/" class="fa fa-linkedin fa-2x"></a>
-	  <a target="_blank" href="skype:live:riddhish84_1" class="fa fa-skype fa-2x"></a>
-	  <!--<a target="_blank" href="https://www.facebook.com/riddhish84" class="fa fa-facebook fa-2x"></a> -->
-	  </div>
-	  <p></p>
-      <ul>
-        <!--<li><a target="_blank" href="https://devriddhish.wordpress.com/">Will meet Soon here</a></li> -->
-      </ul>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            min-height: calc(100vh - 80px);
+        }
+
+        .left-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .skills-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+
+        .skills-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Progress bar styles */
+        .skill-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.8s ease-in-out;
+            position: relative;
+        }
+
+        .skill-item.active .skill-progress {
+            opacity: 1;
+        }
+
+        /* Tooltip styles */
+        .skill-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            margin-bottom: 5px;
+        }
+
+        .skill-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .skill-item:hover .skill-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Experience badge */
+        .experience-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 7px;
+            border-radius: 12px;
+            min-width: 22px;
+            text-align: center;
+            opacity: 1;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-item:hover .experience-badge {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-item.active .experience-badge {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+        .right-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .role-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .role-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .description p {
+            margin-bottom: 20px;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .expertise-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .expertise-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 20px 10px;
+            }
+
+            .left-section,
+            .right-section {
+                padding: 30px 20px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .left-section,
+        .right-section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .right-section {
+            animation-delay: 0.2s;
+        }
+    </style>
+
+    <style>
+        #experience {
+            padding: 40px;
+            background: #f9f9f9;
+        }
+
+        #experience h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-logo {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .company {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .date-location {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .skills {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Section - Profile and Skills -->
+        <div class="left-section">
+            <div class="profile-header">
+                <div class="profile-image">RRB</div>
+                <h1 class="name">Riddhish Bambhroliya</h1>
+                <div class="quote">
+                    "Quality will always cost less"
+                    <br><small>- My development philosophy</small>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item" data-skill="ai" data-proficiency="85" data-years="2">
+                        AI
+                        <div class="skill-tooltip">AI & Machine Learning - 85% Proficiency</div>
+                        <div class="experience-badge">2y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="csharp" data-proficiency="95" data-years="8">
+                        C#
+                        <div class="skill-tooltip">C# Programming - 95% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="dotnet" data-proficiency="95" data-years="8">
+                        .NET
+                        <div class="skill-tooltip">.NET Framework - 95% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="python" data-proficiency="90" data-years="4">
+                        Python
+                        <div class="skill-tooltip">Python Development - 90% Proficiency</div>
+                        <div class="experience-badge">4y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="javascript" data-proficiency="92" data-years="7">
+                        JavaScript
+                        <div class="skill-tooltip">JavaScript & ES6+ - 92% Proficiency</div>
+                        <div class="experience-badge">7y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="react" data-proficiency="88" data-years="4">
+                        React
+                        <div class="skill-tooltip">React Development - 88% Proficiency</div>
+                        <div class="experience-badge">4y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="angular" data-proficiency="85" data-years="3">
+                        Angular
+                        <div class="skill-tooltip">Angular Framework - 85% Proficiency</div>
+                        <div class="experience-badge">3y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="sqlserver" data-proficiency="93" data-years="8">
+                        SQL Server
+                        <div class="skill-tooltip">SQL Server Database - 93% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="mysql" data-proficiency="90" data-years="6">
+                        MySQL
+                        <div class="skill-tooltip">MySQL Database - 90% Proficiency</div>
+                        <div class="experience-badge">6y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="azure" data-proficiency="87" data-years="3">
+                        Azure
+                        <div class="skill-tooltip">Microsoft Azure - 87% Proficiency</div>
+                        <div class="experience-badge">3y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="restapi" data-proficiency="94" data-years="7">
+                        REST API
+                        <div class="skill-tooltip">RESTful APIs - 94% Proficiency</div>
+                        <div class="experience-badge">7y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="mvc" data-proficiency="96" data-years="8">
+                        MVC
+                        <div class="skill-tooltip">MVC Architecture - 96% Proficiency</div>
+                        <div class="experience-badge">8y</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section - Professional Description -->
+        <div class="right-section">
+            <div class="about-section">
+                <h2>Professional Profile</h2>
+
+                <div class="role-tags">
+                    <span class="role-tag">Computer Engineer</span>
+                    <span class="role-tag">Software Developer</span>
+                    <span class="role-tag">SSAS DEVELOPER</span>
+                </div>
+
+                <div class="description">
+                    <p>
+                        <strong>Expert in .NET MVC and Web API (RESTful)</strong> with extensive experience working with
+                        the latest front-end frameworks including React and Angular. I specialize in creating scalable,
+                        high-performance web applications that deliver exceptional user experiences.
+                    </p>
+
+                    <p>
+                        <strong>Database Mastery:</strong> Advanced proficiency in SQL Server and MySQL, with expertise
+                        in designing and implementing stored procedures and views to enhance application performance and
+                        optimize data retrieval.
+                    </p>
+
+                    <p>
+                        <strong>Cloud & Infrastructure:</strong> Comprehensive experience with Azure cloud services and
+                        cache management solutions. Specialized knowledge in Azure B2C implementation using custom
+                        policies for secure authentication and authorization systems.
+                    </p>
+
+                    <p>
+                        <strong>Domain Expertise:</strong>
+                    </p>
+                    <ul class="expertise-list">
+                        <li>DICOM Processing</li>
+                        <li>Marketing Automation Systems</li>
+                        <li>Cargo Management Solutions</li>
+                        <li>User Management & Authentication</li>
+                        <li>Enterprise Application Development</li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
     </div>
-  </body>
+    <div class="container">
+        <div class="left-section">
+            <div class="about-section">
+                <h2>Current Experience</h2>
+            </div>
+            <!-- RamSoft -->
+            <div class="experience-item">
+                <h3>Software Developer</h3>
+                <p class="company">RamSoft · Permanent Full-time</p>
+                <p class="date-location">Sep 2020 – Present · 5 yrs | Toronto, Ontario, Canada</p>
+                <h4>Key Contributions:</h4>
+                <ul class="expertise-list">
+                    <li>Developed a SaaS product that significantly enhances patient care and reimagines healthcare
+                        delivery.</li>
+                    <li>Implemented efficient DICOM processing for streamlined medical data management.</li>
+                    <li>Designed and executed seamless authentication and authorization experiences utilizing B2C custom
+                        policies across C#, JavaScript, Python, and PowerShell.</li>
+                    <li>Built a custom Authentication Policy builder to facilitate federated logins, enhancing user
+                        experience and security.</li>
+                    <li>Developed intuitive, responsive UIs using React.</li>
+                    <li>Managed CI/CD pipelines to optimize deployment workflows.</li>
+                    <li>Created Chrome extensions to enhance application functionality.</li>
+                    <li>Conducted load testing with Apache JMeter to ensure performance under varying conditions.</li>
+                    <li>Reviewed and improved code quality and application performance.</li>
+                    <li>Troubleshot and resolved production bugs by analyzing logs and diagnosing issues effectively.
+                    </li>
+                </ul>
+                <p class="skills"><strong>Skills:</strong> Python, C#, JavaScript, React, CI/CD, DICOM, Apache JMeter,
+                    Chrome Extensions, B2C Authentication</p>
+            </div>
+
+        </div>
+        <div class="right-section">
+            <div class="about-section">
+                <h2>Previous Experience</h2>
+            </div>
+            <!-- Sourcenet IT -->
+            <div class="experience-item">
+                <h3>Sr. Web Developer</h3>
+                <p class="company">Sourcenet IT Service Provider Private Limited · Full-time</p>
+                <p class="date-location">Aug 2016 – Mar 2019 · 2 yrs 8 mos | Surat Area, India</p>
+                <h4>Key Contributions:</h4>
+                <ul class="expertise-list">
+                    <li>Led development and maintenance of multi-layered projects using Devexpress, Entity Framework,
+                        Angular, Web API, and jQuery.</li>
+                    <li>Directed a team of four developers, ensuring quality and timely delivery.</li>
+                    <li>Improved query runtime by 30% through optimized stored procedures and functions.</li>
+                    <li>Documented REST APIs using Swagger for improved team collaboration.</li>
+                    <li>Implemented code corrections in C# and JavaScript, reducing schedule slippage using Git and
+                        Jira.</li>
+                    <li>Managed MySQL and SQL Server databases with optimized connections and procedures.</li>
+                    <li>Awarded “Best Employee” in 2019 for outstanding performance.</li>
+                </ul>
+                <p class="skills"><strong>Skills:</strong> HTML, REST APIs, C#, JavaScript, Angular, SQL Server, MySQL,
+                    Git, Jira, Swagger</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+          // Add click event listeners to skill items
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const proficiency = this.dataset.proficiency;
+                const progressFill = this.querySelector('.skill-progress-fill');
+
+                // Toggle active state
+                const isActive = this.classList.contains('active');
+
+                // Remove active state from all items
+                document.querySelectorAll('.skill-item').forEach(skill => {
+                    skill.classList.remove('active');
+                    skill.querySelector('.skill-progress-fill').style.width = '0%';
+                });
+
+                // If item wasn't active, make it active
+                if (!isActive) {
+                    this.classList.add('active');
+
+                    // Animate progress bar
+                    setTimeout(() => {
+                        progressFill.style.width = proficiency + '%';
+                    }, 100);
+                }
+
+                // Scale effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = this.classList.contains('active') ? 'translateY(-2px)' : 'translateY(0)';
+                }, 150);
+            });
+        });
+
+        // Add smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+
 </html>
